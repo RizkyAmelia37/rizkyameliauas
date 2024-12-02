@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter-parameter
+v0 = 50  # Kecepatan awal (m/s)
+g = 9.8  # Percepatan gravitasi (m/s^2)
+
+# Waktu total gerakan (waktu untuk naik dan turun)
+t_tertinggi = v0 / g  # Waktu untuk mencapai titik tertinggi
+t_total = 2 * t_tertinggi  # Total waktu untuk kembali ke posisi awal
+
+# Membuat array waktu dari 0 hingga t_total
+t = np.linspace(0, t_total, 500)
+
+# Menghitung posisi y(t) untuk setiap waktu t
+y = v0 * t - 0.5 * g * t**2
+
+# Membuat grafik
+plt.figure(figsize=(8, 6))
+plt.plot(t, y, label="Posisi Benda (y)", color='b')
+plt.title("Gerak Benda Dilempar Vertikal ke Atas")
+plt.xlabel("Waktu (detik)")
+plt.ylabel("Posisi (meter)")
+plt.grid(True)
+plt.axhline(0, color='black',linewidth=1)  # Menambahkan garis horizontal untuk posisi y=0
+plt.axvline(t_tertinggi, color='r', linestyle='--', label="Titik Tertinggi")  # Titik tertinggi
+plt.legend()
+plt.show()
