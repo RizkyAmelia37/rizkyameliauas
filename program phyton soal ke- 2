@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter-parameter
+T = 10  # Periode (detik)
+A = 0.05  # Amplitudo (meter)
+omega = 2 * np.pi / T  # Frekuensi sudut (rad/s)
+
+# Waktu dari 0 sampai 50 detik
+t_values = np.linspace(0, 50, 500)
+
+# Posisi benda sebagai fungsi waktu
+x_values = A * np.cos(omega * t_values)
+
+# Membuat grafik posisi terhadap waktu
+plt.figure(figsize=(8, 6))
+plt.plot(t_values, x_values, label=r"$x(t) = A \cos(\omega t)$", color='b')
+plt.title("Gerak Harmonis Sederhana: Posisi vs Waktu")
+plt.xlabel("Waktu (detik)")
+plt.ylabel("Posisi (meter)")
+plt.grid(True)
+plt.axhline(0, color='black',linewidth=1)  # Menambahkan garis horizontal untuk x=0
+plt.axvline(0, color='black',linewidth=1)  # Menambahkan garis vertikal untuk t=0
+plt.legend()
+plt.show()
